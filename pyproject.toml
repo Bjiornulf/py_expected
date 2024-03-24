@@ -1,0 +1,24 @@
+[project]
+name = "py_expected"
+version = "0.0.1"
+authors = [
+  { name="anonymous", email="anonymous@mail.com" },
+]
+description = "A python implementation of std::expected"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/bjiornulf/py_expected"
+Issues = "https://github.com/bjiornulf/py_expected/issues"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+
