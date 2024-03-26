@@ -1,2 +1,3 @@
 # py_expected
-Python implementation of std::expected
+
+An attempt to a python equivalent of std::expected (c\+\+23)
