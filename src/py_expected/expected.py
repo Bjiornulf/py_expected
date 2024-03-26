@@ -13,8 +13,19 @@ E = TypeVar('E')
 
 
 class BadValueAccess(LookupError, Generic[E]):
-    def __init__(self, error: E):
+    def __init__(self, error: E) -> None:
         self._error = error
+
+    def error(self) -> E:
+        return self._error
+
+
+class BadErrorAccess(LookupError, Generic[T]):
+    def __init__(self, value: T) -> None:
+        self._value = value
+
+    def value(self) -> T:
+        return self._value
 
 
 class Unexpected(Generic[E]):
@@ -41,7 +52,9 @@ class Expected(Generic[T, E]):
         raise BadValueAccess(self._error)
 
     def error(self) -> E:
-        return self._error
+        if not self._has_value:
+            return self._error
+        raise BadErrorAccess(self._value)
 
     def value_or(self, default: T) -> T:
         if not self._has_value:
