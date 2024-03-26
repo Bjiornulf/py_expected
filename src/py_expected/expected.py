@@ -1,4 +1,4 @@
-from typing import Any, Callable, Generic, TypeVar, Union
+from typing import Callable, Generic, TypeVar, Union
 
 T = TypeVar('T')
 U = TypeVar('U')
@@ -23,7 +23,7 @@ class BadErrorAccess(LookupError, Generic[T]):
 
 
 class Unexpected(Generic[E]):
-    def __init__(self, error: Any) -> None:
+    def __init__(self, error: E) -> None:
         self._error = error
 
 
